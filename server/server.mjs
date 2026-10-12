@@ -42,11 +42,12 @@ const server = http.createServer(async (req, res) => {
   let reqPath;
   try { reqPath = decodeURIComponent(req.url.split('?')[0]); }
   catch { reply(400, 'Invalid URL encoding'); return; }
-  if (reqPath === '/') reqPath = '/index.html';
   if (reqPath.includes('\\') || reqPath.includes('\0') || reqPath.split('/').some(part => part.startsWith('.'))) {
     reply(403, 'Forbidden'); return;
   }
-  // This hash-routed application only needs public assets; never expose the repo/server/tests.
+  // Application routes are extensionless paths ("/", "/entity/gravity"): serve the shell and let the router render.
+  // Everything else must be a public asset; never expose the repo/server/tests.
+  if (reqPath === '/' || !path.posix.basename(reqPath).includes('.')) reqPath = '/index.html';
   if (!['/index.html', '/manifest.webmanifest'].includes(reqPath) && !/^\/(js|css|assets)\//.test(reqPath)) {
     reply(404, 'Not Found'); return;
   }

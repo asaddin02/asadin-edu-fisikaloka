@@ -3,7 +3,7 @@ import {COURSES,LEVELS,coursesForLevel} from '../js/data/courses/index.js';
 import {DEEP_DIVES} from '../js/data/courses/deep-dives.js';
 import {topicLabel} from '../js/data/topic-labels.js';
 const original=JSON.parse(fs.readFileSync(new URL('../docs/audit/coverage.json',import.meta.url)));
-const evidence=c=>({id:c.id,title:c.title,route:`#/lesson/${c.id}`,source:c.url,fields:['intuition','explanation','advanced','example','activity','question','answer','reason'],deepDive:!!DEEP_DIVES[c.id]});
+const evidence=c=>({id:c.id,title:c.title,route:`/lesson/${c.id}`,source:c.url,fields:['intuition','explanation','advanced','example','activity','question','answer','reason'],deepDive:!!DEEP_DIVES[c.id]});
 const topics=original.filter(r=>r.kind==='topic'&&r.section>=10&&r.section<=31).map(r=>{const topic=r.requirement.replace(/^[^:]+: /,'');return {section:r.section,requirement:r.requirement,topic,indonesian:topicLabel(topic),lessons:COURSES.filter(c=>c.topics.some(t=>t.toLowerCase()===topic.toLowerCase())).map(evidence)};});
 const equivalents={electricity:['electricity'],waves:['waves'],optics:['optics'],mechanics:['kinematics','dynamics','rotation'],thermodynamics:['thermodynamics'],magnetism:['magnetism'],'modern physics':['special-relativity','quantum','atomic']};
 const education=original.filter(r=>r.section===38&&r.kind==='topic').map(r=>{const [name,topic]=r.requirement.split(': '),level=name.toLowerCase();return {requirement:r.requirement,level,lessons:coursesForLevel(level).filter(c=>c.topics.includes(topic)||equivalents[topic]?.includes(c.domainId)).map(evidence)};});

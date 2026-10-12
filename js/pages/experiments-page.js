@@ -7,7 +7,7 @@ export function renderExperimentsPage(container, params = {}) {
   let selectedExpId = params.id || (PHYSICS_EXPERIMENTS[0] ? PHYSICS_EXPERIMENTS[0].id : null);
   let activeExp = PHYSICS_EXPERIMENTS.find(e => e.id === selectedExpId) || PHYSICS_EXPERIMENTS[0];
   if (params.id && !PHYSICS_EXPERIMENTS.some(e => e.id === params.id)) {
-    container.innerHTML = '<div class="content-wrap"><h1>Eksperimen tidak ditemukan</h1><a href="#/experiments">Kembali ke daftar</a></div>';
+    container.innerHTML = '<div class="content-wrap"><h1>Eksperimen tidak ditemukan</h1><a href="/experiments">Kembali ke daftar</a></div>';
     return;
   }
 
@@ -27,7 +27,7 @@ export function renderExperimentsPage(container, params = {}) {
               Eksperimen Kunci Fisika:
             </div>
             ${PHYSICS_EXPERIMENTS.map(exp => `
-              <a href="#/experiments?id=${exp.id}"
+              <a href="/experiments?id=${exp.id}"
                 class="sim-tab-item ${exp.id === activeExp.id ? 'active' : ''}" 
                 data-exp-id="${exp.id}"
                 style="display: flex; flex-direction: column; align-items: flex-start; gap: 3px;"

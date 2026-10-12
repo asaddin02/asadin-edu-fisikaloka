@@ -48,7 +48,7 @@ Tes mencakup integritas isi, model numerik, keamanan server, 191 tujuan katalog,
 npm run build
 ```
 
-Unggah **isi `dist/`** ke hosting statis yang mendukung ES modules dan MIME JavaScript/CSS yang benar. Folder ini hanya berisi HTML, manifest, CSS, JavaScript, aset publik, `robots.txt`, dan `_headers` (CSP serta header keamanan yang sama dengan server Node; dibaca Cloudflare Pages dan Netlify). Routing memakai hash (`#/learn`), sehingga tidak membutuhkan rewrite semua URL ke index. Aset relatif juga mendukung pemasangan dalam subdirektori. Tidak perlu mengunggah source server, tes, docs atau `node_modules`. `SITE_URL=https://alamat-situs npm run build` menambahkan canonical, `og:url`, dan `og:image` absolut untuk pratinjau tautan.
+Unggah **isi `dist/`** ke hosting statis yang mendukung ES modules dan MIME JavaScript/CSS yang benar. Folder ini hanya berisi HTML, manifest, CSS, JavaScript, aset publik, `robots.txt`, dan `_headers` (CSP serta header keamanan yang sama dengan server Node; dibaca Cloudflare Pages dan Netlify). Routing memakai path asli (`/learn`, `/entity/gravity`): build menulis satu berkas HTML pra-render per halaman (misalnya `dist/entity/gravity.html`, disajikan Cloudflare Pages di `/entity/gravity`) beserta `sitemap.xml`, dan `404.html` berisi shell aplikasi untuk alamat lain. Situs harus dipasang di root origin, bukan subdirektori. Tidak perlu mengunggah source server, tes, docs atau `node_modules`. `SITE_URL=https://alamat-situs npm run build` menambahkan canonical, `og:url`, dan `og:image` absolut untuk pratinjau tautan.
 
 ### Cloudflare Pages (disarankan)
 

@@ -10,7 +10,7 @@ export function renderEquationsPage(container, params = {}) {
   let selectedEqId = params.id || (PHYSICS_EQUATIONS[0] ? PHYSICS_EQUATIONS[0].id : null);
   let activeEq = PHYSICS_EQUATIONS.find(e => e.id === selectedEqId) || PHYSICS_EQUATIONS[0];
   if (params.id && !PHYSICS_EQUATIONS.some(e => e.id === params.id)) {
-    container.innerHTML = '<div class="content-wrap"><h1>Persamaan tidak ditemukan</h1><a href="#/equations">Kembali ke daftar</a></div>';
+    container.innerHTML = '<div class="content-wrap"><h1>Persamaan tidak ditemukan</h1><a href="/equations">Kembali ke daftar</a></div>';
     return;
   }
   let solverInputs = {};
@@ -43,7 +43,7 @@ export function renderEquationsPage(container, params = {}) {
               Daftar Persamaan Utama:
             </div>
             ${PHYSICS_EQUATIONS.map(eq => `
-              <a href="#/equations?id=${eq.id}"
+              <a href="/equations?id=${eq.id}"
                 class="sim-tab-item ${eq.id === activeEq.id ? 'active' : ''}" 
                 data-eq-id="${eq.id}"
                 style="display: flex; flex-direction: column; align-items: flex-start; gap: 3px;"
@@ -87,7 +87,7 @@ export function renderEquationsPage(container, params = {}) {
                   </h3>
                   <div class="variables-inspector-grid">
                     ${activeEq.variables.map(v => `
-                      <a href="${resolveReference(v.quantityId)?.url || '#/equations'}" class="variable-pill" style="text-decoration: none; display: flex; flex-direction: column;" title="Buka entitas fisis ${v.name}">
+                      <a href="${resolveReference(v.quantityId)?.url || '/equations'}" class="variable-pill" style="text-decoration: none; display: flex; flex-direction: column;" title="Buka entitas fisis ${v.name}">
                         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                           <div class="variable-sym">${v.symbol}</div>
                           <span style="font-size: 0.72rem; color: var(--cyan-bright); font-weight: 600;">Lihat Entitas ➔</span>

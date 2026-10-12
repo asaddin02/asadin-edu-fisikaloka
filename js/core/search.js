@@ -27,7 +27,7 @@ class PhysicsSearchEngine {
         subtitle: ent.indonesianName,
         badge: ent.entityType,
         domainId: ent.domainId,
-        url: `#/entity/${ent.id}`,
+        url: `/entity/${ent.id}`,
         searchTerms: `${ent.name} ${ent.indonesianName} ${ent.symbol || ''} ${ent.summary} ${ent.entityType} ${ent.subdomain || ''}`.toLowerCase()
       });
     }
@@ -42,7 +42,7 @@ class PhysicsSearchEngine {
         badge: 'Domain',
         icon: dom.icon,
         domainId: dom.id,
-        url: `#/explore?domain=${dom.id}`,
+        url: `/explore?domain=${dom.id}`,
         searchTerms: `${dom.name} ${dom.indonesianName} ${dom.description} ${dom.subdomains.join(' ')}`.toLowerCase()
       });
     }
@@ -57,7 +57,7 @@ class PhysicsSearchEngine {
         badge: 'Equation',
         symbol: eq.latexDisplay,
         domainId: eq.domainId,
-        url: `#/equations?id=${eq.id}`,
+        url: `/equations?id=${eq.id}`,
         searchTerms: `${eq.name} ${eq.indonesianName} ${eq.latexDisplay} ${eq.summary} ${eq.variables.map(v => v.name + ' ' + v.symbol).join(' ')}`.toLowerCase()
       });
     }
@@ -70,7 +70,7 @@ class PhysicsSearchEngine {
         title: `${c.symbol} · ${c.name}`,
         subtitle: `${c.indonesianName} (${c.value} ${c.unit})`,
         badge: 'Constant',
-        url: `#/constants?id=${c.id}`,
+        url: `/constants?id=${c.id}`,
         searchTerms: `${c.name} ${(c.aliases || []).join(' ')} ${c.indonesianName} ${c.symbol} ${c.unit} ${c.category} ${c.description}`.toLowerCase()
       });
     }
@@ -84,17 +84,17 @@ class PhysicsSearchEngine {
         subtitle: `${exp.indonesianName} (${exp.scientist}, ${exp.year})`,
         badge: 'Experiment',
         domainId: exp.domainId,
-        url: `#/experiments?id=${exp.id}`,
+        url: `/experiments?id=${exp.id}`,
         searchTerms: `${exp.name} ${exp.indonesianName} ${exp.scientist} ${exp.objective} ${exp.relatedLaw}`.toLowerCase()
       });
     }
 
     for (const lesson of LESSONS) {
       items.push({type:'lesson', id:lesson.id, title:lesson.title, subtitle:`${lesson.levelTitle} · ${lesson.moduleTitle}`, badge:'Lesson',
-        url:`#/learn?level=${lesson.levelId}&lesson=${lesson.id}`,
+        url:`/learn?level=${lesson.levelId}&lesson=${lesson.id}`,
         searchTerms:`${lesson.title} ${lesson.concepts.join(' ')} ${lesson.takeaway} ${lesson.levelTitle} lesson pelajaran`.toLowerCase()});
     }
-    for (const course of COURSES) items.push({type:'lesson',id:course.id,title:course.title,subtitle:course.intuition,badge:'Pelajaran',domainId:course.domainId,url:`#/lesson/${course.id}`,searchTerms:`${course.title} ${course.topics.join(' ')} ${course.topics.map(topicLabel).join(' ')} ${course.intuition} ${course.explanation}`.toLowerCase()});
+    for (const course of COURSES) items.push({type:'lesson',id:course.id,title:course.title,subtitle:course.intuition,badge:'Pelajaran',domainId:course.domainId,url:`/lesson/${course.id}`,searchTerms:`${course.title} ${course.topics.join(' ')} ${course.topics.map(topicLabel).join(' ')} ${course.intuition} ${course.explanation}`.toLowerCase()});
     this.index = items;
   }
 

@@ -1,3 +1,5 @@
+import { navigate } from '../core/router.js';
+import { SIMULATIONS } from '../data/simulations.js';
 import { CircuitSimulation } from '../simulations/circuit-sim.js';
 // Phsyco · Interactive Virtual Physics Lab Hub (12 High-Precision Simulators)
 
@@ -15,21 +17,8 @@ import { BohrAtomSimulation } from '../simulations/bohr-atom-sim.js';
 import { BernoulliFluidSimulation } from '../simulations/bernoulli-fluid-sim.js';
 
 export function renderSimulationsPage(container, params = {}) {
-  const simList = [
-    { id: 'circuits', title: 'Rangkaian DC Seri & Paralel', category: 'Listrik', icon: '🔋', SimClass: CircuitSimulation },
-    { id: 'projectile', title: 'Gerak Parabola & Balistik', category: 'Kinematika', icon: '🚀', SimClass: ProjectileSimulation },
-    { id: 'pendulum', title: 'Bandul & GHS Teredam', category: 'Osilasi & Energi', icon: '⏱️', SimClass: PendulumSimulation },
-    { id: 'wave-doppler', title: 'Gelombang & Efek Doppler', category: 'Gelombang & Bunyi', icon: '🔊', SimClass: WaveDopplerSimulation },
-    { id: 'double-slit', title: 'Interferensi Celah Ganda', category: 'Optika Gelombang', icon: '〰️', SimClass: DoubleSlitSimulation },
-    { id: 'electric-field', title: 'Medan Listrik & Muatan Coulomb', category: 'Elektrostatika', icon: '⚡', SimClass: ElectricFieldSimulation },
-    { id: 'lorentz-force', title: 'Gaya Lorentz & Siklotron', category: 'Kemagnetan', icon: '🧲', SimClass: LorentzForceSimulation },
-    { id: 'optics', title: 'Pembiasan Snellius & Lensa Tipis', category: 'Optika Geometri', icon: '🔍', SimClass: OpticsRaySimulation },
-    { id: 'thermodynamics', title: 'Diagram P-V & Mesin Carnot', category: 'Termodinamika', icon: '⚙️', SimClass: ThermodynamicsSimulation },
-    { id: 'relativity', title: 'Dilatasi Waktu Relativitas Khusus', category: 'Relativitas', icon: '⏳', SimClass: RelativitySimulation },
-    { id: 'orbital-gravity', title: 'Mekanika Orbit & Hukum Kepler', category: 'Gravitasi', icon: '🪐', SimClass: OrbitalGravitySimulation },
-    { id: 'bohr-atom', title: 'Model Atom Bohr & Spektrum Foton', category: 'Fisika Kuantum', icon: '⚛️', SimClass: BohrAtomSimulation },
-    { id: 'bernoulli-fluid', title: 'Tabung Venturi & Asas Bernoulli', category: 'Mekanika Fluida', icon: '🌊', SimClass: BernoulliFluidSimulation }
-  ];
+  const simClasses = { 'circuits': CircuitSimulation, 'projectile': ProjectileSimulation, 'pendulum': PendulumSimulation, 'wave-doppler': WaveDopplerSimulation, 'double-slit': DoubleSlitSimulation, 'electric-field': ElectricFieldSimulation, 'lorentz-force': LorentzForceSimulation, 'optics': OpticsRaySimulation, 'thermodynamics': ThermodynamicsSimulation, 'relativity': RelativitySimulation, 'orbital-gravity': OrbitalGravitySimulation, 'bohr-atom': BohrAtomSimulation, 'bernoulli-fluid': BernoulliFluidSimulation };
+  const simList = SIMULATIONS.map(sim => ({ ...sim, SimClass: simClasses[sim.id] }));
 
   let activeSimMeta = simList.find(s => s.id === params.sim) || simList.find(s => s.id === 'projectile');
   let activeSimInstance = null;
@@ -65,7 +54,7 @@ export function renderSimulationsPage(container, params = {}) {
               Pilih Modul Simulasi:
             </div>
             ${simList.map(sim => `
-              <a href="#/simulations?sim=${sim.id}"
+              <a href="/simulations?sim=${sim.id}"
                 class="sim-tab-item ${sim.id === activeSimMeta.id ? 'active' : ''}" 
                 data-sim-id="${sim.id}"
               >
@@ -106,7 +95,7 @@ export function renderSimulationsPage(container, params = {}) {
       </div>
     `;
 
-    container.querySelector('#sim-mobile-select').addEventListener('change', e => { location.hash = `#/simulations?sim=${e.target.value}`; });
+    container.querySelector('#sim-mobile-select').addEventListener('change', e => { navigate(`/simulations?sim=${e.target.value}`); });
 
     // Initialize the canvas and simulator
     const canvas = container.querySelector('#sim-viewport-canvas');

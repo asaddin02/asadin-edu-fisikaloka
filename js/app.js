@@ -63,7 +63,7 @@ class PhsycoApp {
           <h1 style="font-size: 3rem; margin-bottom: 12px; color: var(--cyan-bright);">404</h1>
           <h2 style="margin-bottom: 16px;">Halaman Tidak Ditemukan</h2>
           <p style="margin-bottom: 24px; color: var(--text-muted);">Jalur '${escapeHTML(notFoundPath)}' tidak terdaftar dalam katalog Phsyco.</p>
-          <a href="#/" class="btn-primary">Kembali ke Beranda</a>
+          <a href="/" class="btn-primary">Kembali ke Beranda</a>
         </div>
       `;
     });
@@ -87,7 +87,7 @@ class PhsycoApp {
       this.pageCleanup = pageRenderer(this.mainSlot, params) || null;
     } catch (error) {
       console.error('Page render failed:', error);
-      this.mainSlot.innerHTML = '<div class="content-wrap"><h1>Halaman gagal dimuat</h1><p>Silakan muat ulang atau kembali ke beranda.</p><a href="#/">Beranda</a></div>';
+      this.mainSlot.innerHTML = '<div class="content-wrap"><h1>Halaman gagal dimuat</h1><p>Silakan muat ulang atau kembali ke beranda.</p><a href="/">Beranda</a></div>';
     }
     document.title = `${this.mainSlot.querySelector('h1')?.textContent.trim() || 'Fisika'} — Phsyco`;
     document.getElementById('main-nav-links')?.classList.remove('mobile-open');
@@ -101,7 +101,7 @@ class PhsycoApp {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === `#${routePath}` || (routePath === '/' && href === '#/')) {
+      if (href === routePath) {
         link.classList.add('active');
         link.setAttribute('aria-current','page');
       } else {

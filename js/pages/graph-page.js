@@ -1,3 +1,4 @@
+import { navigate } from '../core/router.js';
 import { resolveReference } from '../core/catalog.js';
 // Phsyco · Interactive Physics Knowledge Graph Visualizer Page
 
@@ -145,7 +146,7 @@ export class GraphVisualizer {
       // If click without large movement, navigate to entity
       if (hit && hit.id === this.draggedNode.id && !this.dragMoved) {
         const ref = resolveReference(hit.id);
-        if (ref) window.location.hash = ref.url;
+        if (ref) navigate(ref.url);
       }
     }
     this.draggedNode = null;
@@ -178,7 +179,7 @@ export class GraphVisualizer {
           ${connectedNodeIds.map(resolveReference).filter(Boolean).map(r => `<a class="subtag" href="${r.url}">${r.name}</a>`).join('')}
         </div>
         <div style="margin-top: 14px;">
-          <a href="${ref?.url || '#/graph'}" class="btn-primary" style="padding: 6px 14px; font-size: 0.8rem;">
+          <a href="${ref?.url || '/graph'}" class="btn-primary" style="padding: 6px 14px; font-size: 0.8rem;">
             Buka Dossier Entitas ➔
           </a>
         </div>

@@ -19,7 +19,7 @@ export function renderEntityDetailPage(container, params = {}) {
       <div class="content-wrap" style="padding: 80px 20px; text-align: center;">
         <h2 style="font-size: 2rem; margin-bottom: 12px;">Entitas Fisika Tidak Ditemukan</h2>
         <p style="margin-bottom: 24px;">Entitas '${escapeHTML(entityId)}' belum terdaftar atau telah dipindahkan.</p>
-        <a href="#/explore" class="btn-primary">Kembali ke Atlas Fisika</a>
+        <a href="/explore" class="btn-primary">Kembali ke Atlas Fisika</a>
       </div>
     `;
     return;
@@ -55,9 +55,9 @@ export function renderEntityDetailPage(container, params = {}) {
       <div class="content-wrap" style="padding-top: 36px; padding-bottom: 80px; max-width: 1080px;">
         <!-- Breadcrumb Navigation -->
         <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
-          <a href="#/explore" style="color: var(--text-muted);">Atlas</a>
+          <a href="/explore" style="color: var(--text-muted);">Atlas</a>
           <span>›</span>
-          <a href="#/explore?domain=${entity.domainId}" style="color: var(--cyan-bright);">${domain ? domain.name : entity.domainId}</a>
+          <a href="/explore?domain=${entity.domainId}" style="color: var(--cyan-bright);">${domain ? domain.name : entity.domainId}</a>
           <span>›</span>
           <span style="color: var(--text-primary); font-weight: 600;">${entity.name}</span>
         </div>
@@ -114,7 +114,7 @@ export function renderEntityDetailPage(container, params = {}) {
           </div>
         </div>
 
-        <section class="entity-study-links"><h2>Pelajari dengan contoh & latihan</h2><div class="resource-links">${COURSES.filter(c=>c.domainId===entity.domainId && c.level!=='sd').slice(0,4).map(c=>`<a href="#/lesson/${c.id}">${escapeHTML(c.title)} →</a>`).join('')}</div></section>
+        <section class="entity-study-links"><h2>Pelajari dengan contoh & latihan</h2><div class="resource-links">${COURSES.filter(c=>c.domainId===entity.domainId && c.level!=='sd').slice(0,4).map(c=>`<a href="/lesson/${c.id}">${escapeHTML(c.title)} →</a>`).join('')}</div></section>
         <!-- KEY VARIABLES BREAKDOWN (IF APPLICABLE) -->
         ${(entity.keyVariables && entity.keyVariables.length > 0) ? `
           <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 28px;">
@@ -177,7 +177,7 @@ export function renderEntityDetailPage(container, params = {}) {
               <h3 style="font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
                 <span>🕸️</span> Jejaring Konsep Terhubung (Knowledge Graph)
               </h3>
-              <a href="#/graph?focus=${entity.id}" style="font-size: 0.85rem; font-weight: 600;">Lihat Peta Graf Penuh ➔</a>
+              <a href="/graph?focus=${entity.id}" style="font-size: 0.85rem; font-weight: 600;">Lihat Peta Graf Penuh ➔</a>
             </div>
             <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
               Fisika adalah satu kesatuan yang utuh. Jelajahi entitas lain yang berinteraksi langsung dengan konsep ini:
