@@ -53,7 +53,7 @@ Unggah **isi `dist/`** ke hosting statis yang mendukung ES modules dan MIME Java
 ### Cloudflare Pages (disarankan)
 
 1. Buat API token Cloudflare dengan izin **Account · Cloudflare Pages · Edit**, lalu salin **Account ID** dari **Workers & Pages**.
-2. Di GitHub, buka **Settings → Secrets and variables → Actions**. Isi secret `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID`, serta variable `CLOUDFLARE_PAGES_PROJECT` (misalnya `fisikaloka`, menjadi `https://fisikaloka.pages.dev`). Opsional: variable `SITE_URL` untuk domain sendiri.
+2. Di GitHub, buka **Settings → Secrets and variables → Actions**. Isi secret `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID`, serta variable `CLOUDFLARE_PAGES_PROJECT` (`fisikaloka`; situs terbit di custom domain https://fisikaloka.asadinedu.com, dan `fisikaloka.pages.dev` dialihkan ke sana). Opsional: variable `SITE_URL` untuk domain sendiri.
 3. Workflow [Deploy](.github/workflows/deploy.yml) berjalan setiap **Application checks** lulus di `main`, atau jalankan manual dari tab **Actions**. Sebelum variable diisi, workflow ini dilewati.
 
 Tanpa GitHub Actions: `npm run build`, lalu unggah folder `dist/` lewat **Workers & Pages → Create → Pages → Upload assets**, atau `npx wrangler pages deploy dist --project-name <nama>`.
