@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Coulomb Electric Field & Charges Sandbox
+// Fisikaloka · Interactive Simulation: Coulomb Electric Field & Charges Sandbox
 
 export class ElectricFieldSimulation {
   constructor() {

@@ -1,7 +1,7 @@
 import { topicLabel } from '../data/topic-labels.js';
 import { COURSES } from '../data/courses/index.js';
 import { LESSONS } from './learning.js';
-// Phsyco · Global Fast Search Indexing Engine
+// Fisikaloka · Global Fast Search Indexing Engine
 
 import { PHYSICS_DOMAINS } from '../data/domains.js';
 import { PHYSICS_ENTITIES } from '../data/entities.js';

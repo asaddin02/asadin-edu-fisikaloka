@@ -1,4 +1,4 @@
-# Publishes Phsyco to Cloudflare Pages: the static package from `npm run build` (with _headers and robots.txt).
+# Publishes Fisikaloka to Cloudflare Pages: the static package from `npm run build` (with _headers and robots.txt).
 # Setup (once): repository variable CLOUDFLARE_PAGES_PROJECT, secrets CLOUDFLARE_API_TOKEN and
 # CLOUDFLARE_ACCOUNT_ID, optional variables SITE_URL and GOOGLE_SITE_VERIFICATION. Until the variable exists this workflow is skipped.
 name: Deploy

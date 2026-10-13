@@ -1,7 +1,7 @@
 import { navigate } from '../core/router.js';
 import { SIMULATIONS } from '../data/simulations.js';
 import { CircuitSimulation } from '../simulations/circuit-sim.js';
-// Phsyco · Interactive Virtual Physics Lab Hub (12 High-Precision Simulators)
+// Fisikaloka · Interactive Virtual Physics Lab Hub (12 High-Precision Simulators)
 
 import { ProjectileSimulation } from '../simulations/projectile-sim.js';
 import { PendulumSimulation } from '../simulations/pendulum-sim.js';

@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Special Relativity (Time Dilation & Length Contraction)
+// Fisikaloka · Interactive Simulation: Special Relativity (Time Dilation & Length Contraction)
 
 export class RelativitySimulation {
   constructor() {

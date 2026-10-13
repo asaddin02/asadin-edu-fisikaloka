@@ -1,4 +1,4 @@
-// Phsyco · Toast Notification Utility
+// Fisikaloka · Toast Notification Utility
 
 export function showToast(message, duration = 3000) {
   let container = document.querySelector('.toast-container');

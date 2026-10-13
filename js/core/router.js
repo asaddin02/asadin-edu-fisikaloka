@@ -1,4 +1,4 @@
-// Phsyco · Path-Based SPA Router (History API)
+// Fisikaloka · Path-Based SPA Router (History API)
 // URLs are real paths ("/entity/gravity", "/lesson/sd-motion?level=sd"); the static host serves the
 // prerendered page or the app shell for them. Legacy "#/..." links are rewritten so old bookmarks keep working.
 

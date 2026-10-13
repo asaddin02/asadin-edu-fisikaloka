@@ -1,5 +1,5 @@
 import { escapeHTML } from './core/html.js';
-// Phsyco · Main Application Entry & Controller
+// Fisikaloka · Main Application Entry & Controller
 
 import { PhysicsRouter } from './core/router.js';
 import { appState } from './core/state.js';
@@ -20,7 +20,7 @@ import { renderGraphPage } from './pages/graph-page.js';
 import { renderSupportPage } from './pages/support-page.js';
 import { renderAboutPage } from './pages/about-page.js';
 
-class PhsycoApp {
+class FisikalokaApp {
   constructor() {
     this.navSlot = document.getElementById('nav-slot');
     this.mainSlot = document.getElementById('main-slot');
@@ -32,7 +32,7 @@ class PhsycoApp {
   }
 
   init() {
-    console.log('🚀 Initializing Phsyco Application...');
+    console.log('🚀 Initializing Fisikaloka Application...');
 
     // 1. Render Global Shell Components
     renderNavbar(this.navSlot);
@@ -62,7 +62,7 @@ class PhsycoApp {
         <div class="content-wrap" style="padding: 100px 20px; text-align: center;">
           <h1 style="font-size: 3rem; margin-bottom: 12px; color: var(--cyan-bright);">404</h1>
           <h2 style="margin-bottom: 16px;">Halaman Tidak Ditemukan</h2>
-          <p style="margin-bottom: 24px; color: var(--text-muted);">Jalur '${escapeHTML(notFoundPath)}' tidak terdaftar dalam katalog Phsyco.</p>
+          <p style="margin-bottom: 24px; color: var(--text-muted);">Jalur '${escapeHTML(notFoundPath)}' tidak terdaftar dalam katalog Fisikaloka.</p>
           <a href="/" class="btn-primary">Kembali ke Beranda</a>
         </div>
       `;
@@ -89,7 +89,7 @@ class PhsycoApp {
       console.error('Page render failed:', error);
       this.mainSlot.innerHTML = '<div class="content-wrap"><h1>Halaman gagal dimuat</h1><p>Silakan muat ulang atau kembali ke beranda.</p><a href="/">Beranda</a></div>';
     }
-    document.title = `${this.mainSlot.querySelector('h1')?.textContent.trim() || 'Fisika'} — Phsyco`;
+    document.title = `${this.mainSlot.querySelector('h1')?.textContent.trim() || 'Fisika'} — Fisikaloka`;
     document.getElementById('main-nav-links')?.classList.remove('mobile-open');
     document.querySelectorAll('#nav-slot details[open]').forEach(el=>el.removeAttribute('open'));
     document.getElementById('mobile-menu-btn')?.setAttribute('aria-expanded', 'false');
@@ -224,6 +224,6 @@ class PhsycoApp {
 
 // Instantiate and start app on DOM content loaded
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new PhsycoApp();
+  const app = new FisikalokaApp();
   app.init();
 });

@@ -1,6 +1,6 @@
 import { DOMAIN_REFERENCES } from './provenance.js';
 import { SUPPLEMENTAL_ENTITIES } from './supplemental-entities.js';
-// Phsyco · Comprehensive Physics Entity System Catalog (60+ Entities Across All 28 Domains & 14 Types)
+// Fisikaloka · Comprehensive Physics Entity System Catalog (60+ Entities Across All 28 Domains & 14 Types)
 
 export const PHYSICS_ENTITIES = [
   // =========================================================================

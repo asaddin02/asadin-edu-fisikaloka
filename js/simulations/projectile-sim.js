@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Projectile Motion & Kinematics Lab
+// Fisikaloka · Interactive Simulation: Projectile Motion & Kinematics Lab
 
 export class ProjectileSimulation {
   constructor() {

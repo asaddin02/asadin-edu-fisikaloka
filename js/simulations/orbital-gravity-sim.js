@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Orbital Mechanics & Keplerian Gravity Lab
+// Fisikaloka · Interactive Simulation: Orbital Mechanics & Keplerian Gravity Lab
 
 export class OrbitalGravitySimulation {
   constructor() {

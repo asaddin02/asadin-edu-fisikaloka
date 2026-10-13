@@ -1,4 +1,4 @@
-// Phsyco · Build-time prerender. One readable HTML body per public page, built from the same data modules the app
+// Fisikaloka · Build-time prerender. One readable HTML body per public page, built from the same data modules the app
 // uses, so search engines get real text and <a href> links before JavaScript runs. On boot the app renders the same
 // route over this markup. Routes are real paths; ids must be URL-safe because they become file names in dist/.
 import {PHYSICS_ENTITIES} from '../js/data/entities.js';
@@ -19,7 +19,7 @@ import {renderSupportPage} from '../js/pages/support-page.js';
 import {navbarHTML} from '../js/components/navbar.js';
 import {footerHTML} from '../js/components/footer.js';
 
-const SECTIONS=[['/learn','Jalur belajar'],['/explore','Ensiklopedia fisika'],['/simulations','Laboratorium interaktif'],['/graph','Peta konsep'],['/equations','Persamaan & kalkulator'],['/constants','Konstanta fisika'],['/experiments','Eksperimen bersejarah'],['/about','Tentang & sumber'],['/dukung','Dukung Phsyco']];
+const SECTIONS=[['/learn','Jalur belajar'],['/explore','Ensiklopedia fisika'],['/simulations','Laboratorium interaktif'],['/graph','Peta konsep'],['/equations','Persamaan & kalkulator'],['/constants','Konstanta fisika'],['/experiments','Eksperimen bersejarah'],['/about','Tentang & sumber'],['/dukung','Dukung Fisikaloka']];
 const text=html=>String(html).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 const describe=(...parts)=>{const s=text(parts.filter(Boolean).join(' '));return s.length>158?`${s.slice(0,157).replace(/\s\S*$/,'')}…`:s;};
 const paragraphs=t=>t.split(/(?<=[.!?]) (?=[A-ZÀ-Ý“])/).reduce((out,sentence,i)=>{const n=Math.floor(i/3);out[n]=(out[n]||'')+(out[n]?' ':'')+sentence;return out;},[]).map(p=>`<p>${esc(p)}</p>`).join('');
@@ -68,12 +68,12 @@ ${deep?`<section><h2>Pendalaman: ${esc(deep.title)}</h2>${paragraphs(deep.text)}
 </article>`};
 };
 
-const learnPage=()=>({route:'/learn',description:'Jalur belajar fisika Phsyco untuk SD, SMP, SMA, universitas dan pengajar: pelajaran dengan intuisi, penjelasan, contoh terurai, aktivitas dan latihan.',
+const learnPage=()=>({route:'/learn',description:'Jalur belajar fisika Fisikaloka untuk SD, SMP, SMA, universitas dan pengajar: pelajaran dengan intuisi, penjelasan, contoh terurai, aktivitas dan latihan.',
   main:`<div class="content-wrap study-hub"><header class="page-heading"><h1>Belajar dengan caramu.</h1><p>Pilih jenjang, pahami konsep, lalu uji pemahamanmu. Semua jalur dapat dijelajahi tanpa terkunci.</p></header>
 ${LEVELS.map(l=>{const path=coursesForLevel(l.id);return `<section id="level-${l.id}"><h2>${esc(l.label)} — ${esc(l.title)}</h2><p>${esc(l.description)} <a href="/learn?level=${l.id}">Buka jalur ${esc(l.label)}</a> · ${path.length} pelajaran.</p><ol>${path.map(c=>`<li><a href="/lesson/${c.id}">${esc(c.title)}</a> — ${esc(c.intuition)}</li>`).join('')}</ol></section>`;}).join('')}
 </div>`});
 
-const explorePage=()=>({route:'/explore',description:'Atlas fisika Phsyco: 28 bidang dari fondasi pengukuran hingga kosmologi dengan dossier konsep, hukum, besaran, partikel, persamaan dan eksperimen.',
+const explorePage=()=>({route:'/explore',description:'Atlas fisika Fisikaloka: 28 bidang dari fondasi pengukuran hingga kosmologi dengan dossier konsep, hukum, besaran, partikel, persamaan dan eksperimen.',
   main:`<div class="content-wrap"><header><h1>Jelajahi keterkaitan fisika.</h1><p>Cari pelajaran, konsep, hukum, persamaan, atau fenomena. Pilih bidang untuk mempersempit penelusuran.</p></header>
 ${PHYSICS_DOMAINS.map(d=>{const items=[...PHYSICS_ENTITIES.filter(e=>e.domainId===d.id).map(e=>[`/entity/${e.id}`,`${e.indonesianName} (${e.name})`]),...PHYSICS_EQUATIONS.filter(e=>e.domainId===d.id).map(e=>[`/equations?id=${e.id}`,`Persamaan: ${e.indonesianName}`]),...PHYSICS_EXPERIMENTS.filter(e=>e.domainId===d.id).map(e=>[`/experiments?id=${e.id}`,`Eksperimen: ${e.indonesianName}`])];
   return `<section id="domain-${d.id}"><h2>${d.icon} ${esc(d.indonesianName)}</h2><p><strong>${esc(d.name)}</strong> · ${esc(d.description)} <a href="/explore?domain=${d.id}">Saring bidang ini</a>.</p>${items.length?`<ul>${links(items)}</ul>`:''}</section>`;}).join('')}
@@ -98,22 +98,22 @@ const simulationsPage=()=>({route:'/simulations',description:'13 laboratorium fi
   main:`<div class="content-wrap"><header><h1>Laboratorium interaktif</h1><p>Ubah parameter, amati hasilnya, dan bandingkan dengan model. Setiap lab menampilkan asumsi serta batas modelnya; simulasi berjalan di browser dengan JavaScript.</p></header><ul>${SIMULATIONS.map(s=>`<li><a href="/simulations?sim=${s.id}">${s.icon} ${esc(s.title)}</a> — ${esc(s.category)}</li>`).join('')}</ul>
 <p>Pelajaran yang terhubung dengan laboratorium:</p><ul>${links(COURSES.filter(c=>c.sim).map(c=>[`/lesson/${c.id}`,c.title]))}</ul></div>`});
 
-const graphPage=()=>({route:'/graph',description:'Peta konsep fisika Phsyco: 45 simpul dan 51 relasi yang menghubungkan besaran, hukum, teori dan bidang dari mekanika Newton hingga relativitas umum.',
+const graphPage=()=>({route:'/graph',description:'Peta konsep fisika Fisikaloka: 45 simpul dan 51 relasi yang menghubungkan besaran, hukum, teori dan bidang dari mekanika Newton hingga relativitas umum.',
   main:`<div class="content-wrap"><header><h1>Peta konsep fisika</h1><p>Graf interaktif yang menghubungkan konsep, besaran dan hukum. Simpul-simpulnya adalah dossier yang dapat dibaca satu per satu.</p></header><ul>${links(PHYSICS_GRAPH_DATA.nodes.map(n=>{const ref=resolveReference(n.id);return ref&&[ref.url,n.label];}).filter(Boolean))}</ul></div>`});
 
-const homePage=()=>({route:'/',description:'Phsyco: platform ensiklopedia fisika interaktif dan laboratorium virtual terbuka dari tingkat SD, SMP, SMA, universitas, hingga pengajar. Menjelajahi realitas fisik materi, energi, gaya, gelombang, relativitas, dan kuantum.',
-  main:`${rendered(renderHomePage)}<section class="content-wrap home-section"><h2>Apa yang ada di Phsyco</h2><p>${COURSES.length} pelajaran dengan latihan, ${PHYSICS_ENTITIES.length} dossier entitas fisika, ${PHYSICS_EQUATIONS.length} persamaan, ${PHYSICAL_CONSTANTS.length} konstanta, ${PHYSICS_EXPERIMENTS.length} eksperimen bersejarah dan ${SIMULATIONS.length} laboratorium interaktif dalam bahasa Indonesia.</p><ul>${links(SECTIONS)}</ul><h3>Jalur belajar</h3><ul>${links(LEVELS.map(l=>[`/learn?level=${l.id}`,`${l.label} — ${l.title}`]))}</ul><h3>Bidang fisika</h3><ul>${links(PHYSICS_DOMAINS.map(d=>[`/explore?domain=${d.id}`,d.indonesianName]))}</ul></section>`});
+const homePage=()=>({route:'/',description:'Fisikaloka: platform ensiklopedia fisika interaktif dan laboratorium virtual terbuka dari tingkat SD, SMP, SMA, universitas, hingga pengajar. Menjelajahi realitas fisik materi, energi, gaya, gelombang, relativitas, dan kuantum.',
+  main:`${rendered(renderHomePage)}<section class="content-wrap home-section"><h2>Apa yang ada di Fisikaloka</h2><p>${COURSES.length} pelajaran dengan latihan, ${PHYSICS_ENTITIES.length} dossier entitas fisika, ${PHYSICS_EQUATIONS.length} persamaan, ${PHYSICAL_CONSTANTS.length} konstanta, ${PHYSICS_EXPERIMENTS.length} eksperimen bersejarah dan ${SIMULATIONS.length} laboratorium interaktif dalam bahasa Indonesia.</p><ul>${links(SECTIONS)}</ul><h3>Jalur belajar</h3><ul>${links(LEVELS.map(l=>[`/learn?level=${l.id}`,`${l.label} — ${l.title}`]))}</ul><h3>Bidang fisika</h3><ul>${links(PHYSICS_DOMAINS.map(d=>[`/explore?domain=${d.id}`,d.indonesianName]))}</ul></section>`});
 
 export const SHELL_NAV=navbarHTML();
 export const SHELL_FOOTER=footerHTML();
 export function prerenderPages(){
   const pages=[homePage(),learnPage(),explorePage(),equationsPage(),constantsPage(),experimentsPage(),simulationsPage(),graphPage(),
-    {route:'/about',description:'Tentang Phsyco: ensiklopedia, ruang belajar dan laboratorium fisika Asadin Edu untuk semua jenjang, dengan sumber yang dapat ditelusuri dan status bukti ilmiah yang jelas.',main:rendered(renderAboutPage)},
-    {route:'/dukung',description:'Dukung Phsyco: ruang belajar fisika gratis tanpa iklan. Donasi sukarela melalui Saweria atau Ko-fi membantu operasional dan pengembangan materi.',main:rendered(renderSupportPage)},
+    {route:'/about',description:'Tentang Fisikaloka: ensiklopedia, ruang belajar dan laboratorium fisika Asadin Edu untuk semua jenjang, dengan sumber yang dapat ditelusuri dan status bukti ilmiah yang jelas.',main:rendered(renderAboutPage)},
+    {route:'/dukung',description:'Dukung Fisikaloka: ruang belajar fisika gratis tanpa iklan. Donasi sukarela melalui Saweria atau Ko-fi membantu operasional dan pengembangan materi.',main:rendered(renderSupportPage)},
     ...PHYSICS_ENTITIES.map(entityPage),...COURSES.map(lessonPage)];
   for(const page of pages){
     const h1=text(page.main.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'');
-    page.title=page.route==='/'?'Phsyco — Ensiklopedia Fisika Interaktif & Platform Pembelajaran':`${h1} — Phsyco`;
+    page.title=page.route==='/'?'Fisikaloka — Ensiklopedia Fisika Interaktif & Platform Pembelajaran':`${h1} — Fisikaloka`;
     page.heading=h1;
   }
   return pages;
@@ -123,7 +123,7 @@ export function jsonLd(page,siteURL){
   const url=siteURL+page.route,crumbs=[['/','Beranda'],...(page.route.startsWith('/entity/')?[['/explore','Jelajah']]:page.route.startsWith('/lesson/')?[['/learn','Belajar']]:[]),[page.route,page.heading]];
   const data=[{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:crumbs.map(([path,name],i)=>({'@type':'ListItem',position:i+1,name,item:siteURL+path}))}];
   if(page.type)data.push({'@context':'https://schema.org','@type':page.type,name:page.heading,headline:page.heading,description:page.description,inLanguage:'id',url,mainEntityOfPage:url,
-    author:{'@type':'Organization',name:'Asadin Edu'},publisher:{'@type':'Organization',name:'Phsyco · Asadin Edu'},
+    author:{'@type':'Organization',name:'Asadin Edu'},publisher:{'@type':'Organization',name:'Fisikaloka · Asadin Edu'},
     ...(page.type==='LearningResource'?{learningResourceType:'Pelajaran',educationalLevel:page.level.label,timeRequired:`PT${page.minutes}M`,isAccessibleForFree:true}:{})});
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g,'\\u003c')}</script>`;
 }

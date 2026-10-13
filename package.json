@@ -1,8 +1,8 @@
 {
-  "name": "asadin-edu-phsyco",
+  "name": "asadin-edu-fisikaloka",
   "version": "1.0.0",
   "type": "module",
-  "description": "Phsyco — Ensiklopedia fisika interaktif dan jalur belajar mandiri",
+  "description": "Fisikaloka — Ensiklopedia fisika interaktif dan jalur belajar mandiri",
   "scripts": {
     "start": "node server/server.mjs",
     "dev": "PORT=8088 HOST=127.0.0.1 LOG=1 node server/server.mjs",

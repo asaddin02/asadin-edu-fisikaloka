@@ -1,6 +1,6 @@
 import { navigate } from '../core/router.js';
 import { resolveReference } from '../core/catalog.js';
-// Phsyco · Interactive Physics Knowledge Graph Visualizer Page
+// Fisikaloka · Interactive Physics Knowledge Graph Visualizer Page
 
 import { PHYSICS_GRAPH_DATA } from '../data/graph-data.js';
 

@@ -1,5 +1,5 @@
 import { renderSources } from '../components/sources.js';
-// Phsyco · Landmark Experiments Explorer Page
+// Fisikaloka · Landmark Experiments Explorer Page
 
 import { PHYSICS_EXPERIMENTS } from '../data/experiments.js';
 

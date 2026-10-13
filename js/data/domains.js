@@ -1,4 +1,4 @@
-// Phsyco · Physical Domains Catalog (28 Comprehensive Domains)
+// Fisikaloka · Physical Domains Catalog (28 Comprehensive Domains)
 
 export const PHYSICS_DOMAINS = [
   {

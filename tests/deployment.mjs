@@ -16,7 +16,7 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name)):path.join(dir,e.name));
 for(const file of walk(root).filter(f=>/\.(html|js)$/.test(f)))assert.doesNotMatch(fs.readFileSync(file,'utf8'),/href="#\//,file);
 const gravity=read('entity/gravity.html');
-assert.match(gravity,/<title>Gravitasi — Phsyco<\/title>/);assert.match(gravity,/<h1>Gravitasi<\/h1>/);assert.match(gravity,/Intuisi &amp; kehidupan sehari-hari|Intuisi & kehidupan sehari-hari/);assert.match(gravity,/href="\/entity\/spacetime"/);assert.match(gravity,/href="\/explore"/);
+assert.match(gravity,/<title>Gravitasi — Fisikaloka<\/title>/);assert.match(gravity,/<h1>Gravitasi<\/h1>/);assert.match(gravity,/Intuisi &amp; kehidupan sehari-hari|Intuisi & kehidupan sehari-hari/);assert.match(gravity,/href="\/entity\/spacetime"/);assert.match(gravity,/href="\/explore"/);
 const lesson=read('lesson/sd-motion.html');assert.match(lesson,/<h1>[^<]+<\/h1>/);assert.match(lesson,/Pahami konsepnya/);assert.match(lesson,/href="\/learn\?level=sd"/);
 assert.match(read('index.html'),/href="\/learn"/);assert.match(read('learn.html'),/href="\/lesson\/maxwell-course"/);
 assert.match(read('404.html'),/<meta name="robots" content="noindex">/);assert.doesNotMatch(read('404.html'),/rel="canonical"/);

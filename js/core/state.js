@@ -1,4 +1,4 @@
-// Phsyco · Reactive Application State Store
+// Fisikaloka · Reactive Application State Store
 
 class PhysicsState {
   constructor() {

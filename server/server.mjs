@@ -1,4 +1,4 @@
-// Phsyco · Standalone High-Performance Node.js Dev & Production Server
+// Fisikaloka · Standalone High-Performance Node.js Dev & Production Server
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
@@ -74,7 +74,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, HOST, () => {
   console.log(`\n======================================================`);
-  console.log(`🚀 Phsyco Server is running!`);
+  console.log(`🚀 Fisikaloka Server is running!`);
   console.log(`📡 URL: http://${HOST}:${PORT}`);
   console.log(`🌌 Interactive Physics Encyclopedia + Learning Platform`);
   console.log(`======================================================\n`);

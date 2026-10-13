@@ -1,6 +1,6 @@
 import { FIELD_EQUATIONS } from './field-equations.js';
 import { DOMAIN_REFERENCES } from './provenance.js';
-// Phsyco · Comprehensive Equation Explorer Database with Variable Interactivity & Solvers
+// Fisikaloka · Comprehensive Equation Explorer Database with Variable Interactivity & Solvers
 
 export const PHYSICS_EQUATIONS = [
   {

@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Fluid Dynamics & Bernoulli Venturi Tube Lab
+// Fisikaloka · Interactive Simulation: Fluid Dynamics & Bernoulli Venturi Tube Lab
 
 export class BernoulliFluidSimulation {
   constructor() {

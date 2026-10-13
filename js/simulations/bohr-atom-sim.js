@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Quantum Bohr Atom & Hydrogen Spectral Lines
+// Fisikaloka · Interactive Simulation: Quantum Bohr Atom & Hydrogen Spectral Lines
 
 export class BohrAtomSimulation {
   constructor() {

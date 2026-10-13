@@ -1,4 +1,4 @@
-// Phsyco · Multi-Layer Depth Switcher Component
+// Fisikaloka · Multi-Layer Depth Switcher Component
 
 export function renderLayerToggle(currentLayer, onLayerChange) {
   const container = document.createElement('div');

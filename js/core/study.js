@@ -6,6 +6,6 @@ export function loadStudy(){
 }
 export function saveStudy(study){try{localStorage.setItem(KEY,JSON.stringify(study));return true;}catch{return false;}}
 export function setStudyLevel(level){const s=loadStudy();if(LEVELS.some(l=>l.id===level))s.level=level;saveStudy(s);return s;}
-export function exportStudy(){return JSON.stringify({application:'Phsyco',version:2,exportedAt:new Date().toISOString(),study:loadStudy()},null,2);}
+export function exportStudy(){return JSON.stringify({application:'Fisikaloka',version:2,exportedAt:new Date().toISOString(),study:loadStudy()},null,2);}
 export function resetStudy(){try{localStorage.removeItem(KEY);localStorage.removeItem('asadin_physics_completed_lessons');return true;}catch{return false;}}
 export function readCourse(id){return findCourse(id);}

@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Young’s Double-Slit Wave Interference & Diffraction
+// Fisikaloka · Interactive Simulation: Young’s Double-Slit Wave Interference & Diffraction
 
 export class DoubleSlitSimulation {
   constructor() {

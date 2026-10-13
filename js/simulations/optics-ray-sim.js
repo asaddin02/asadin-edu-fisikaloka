@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Optics & Ray Tracing (Snell's Law & Thin Lens Ray Diagram)
+// Fisikaloka · Interactive Simulation: Optics & Ray Tracing (Snell's Law & Thin Lens Ray Diagram)
 
 export class OpticsRaySimulation {
   constructor() {

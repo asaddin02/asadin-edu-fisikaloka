@@ -1,4 +1,4 @@
-// Phsyco · Physics Knowledge Graph Network Data
+// Fisikaloka · Physics Knowledge Graph Network Data
 
 export const PHYSICS_GRAPH_DATA = {
   nodes: [

@@ -1,5 +1,5 @@
 import { escapeHTML } from '../core/html.js';
-// Phsyco · Physical Constants Explorer Page (CODATA & 2019 SI Redefinition)
+// Fisikaloka · Physical Constants Explorer Page (CODATA & 2019 SI Redefinition)
 
 import { PHYSICAL_CONSTANTS } from '../data/constants.js';
 

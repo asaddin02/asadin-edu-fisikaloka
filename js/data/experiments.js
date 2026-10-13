@@ -1,4 +1,4 @@
-// Phsyco · Landmark Historical & Modern Experiments Explorer
+// Fisikaloka · Landmark Historical & Modern Experiments Explorer
 
 export const PHYSICS_EXPERIMENTS = [
   {

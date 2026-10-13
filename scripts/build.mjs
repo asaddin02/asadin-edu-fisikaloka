@@ -40,7 +40,7 @@ for(const page of pages){
   await fs.writeFile(file,document({...page,head:siteURL?`  ${jsonLd(page,siteURL)}\n`:''}));
 }
 // Unknown paths get the app shell with a 404 status (Cloudflare Pages serves 404.html automatically); the app shows its own 404 page.
-await fs.writeFile(path.join(output,'404.html'),document({route:'/404',title:'Halaman tidak ditemukan · Phsyco',description:'Alamat ini tidak ada di Phsyco.',main:'<div class="content-wrap"><h1>Halaman tidak ditemukan</h1><p>Alamat ini tidak ada di Phsyco.</p><p><a href="/">Kembali ke beranda Phsyco</a></p></div>',robots:'\n  <meta name="robots" content="noindex">',canonical:false}));
+await fs.writeFile(path.join(output,'404.html'),document({route:'/404',title:'Halaman tidak ditemukan · Fisikaloka',description:'Alamat ini tidak ada di Fisikaloka.',main:'<div class="content-wrap"><h1>Halaman tidak ditemukan</h1><p>Alamat ini tidak ada di Fisikaloka.</p><p><a href="/">Kembali ke beranda Fisikaloka</a></p></div>',robots:'\n  <meta name="robots" content="noindex">',canonical:false}));
 const today=new Date().toISOString().slice(0,10);
 if(siteURL)await fs.writeFile(path.join(output,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p=>`  <url><loc>${siteURL}${p.route}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 // Cloudflare Pages and Netlify read _headers; the policy matches server/server.mjs.

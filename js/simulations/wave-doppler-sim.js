@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Wave Propagation & Doppler Effect Lab (Subsonic & Supersonic Mach Cone)
+// Fisikaloka · Interactive Simulation: Wave Propagation & Doppler Effect Lab (Subsonic & Supersonic Mach Cone)
 
 export class WaveDopplerSimulation {
   constructor() {

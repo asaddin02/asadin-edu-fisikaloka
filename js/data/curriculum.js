@@ -1,4 +1,4 @@
-// Phsyco · Comprehensive Curriculum & Learning Paths (SD, SMP, SMA, University, Educator)
+// Fisikaloka · Comprehensive Curriculum & Learning Paths (SD, SMP, SMA, University, Educator)
 
 export const CURRICULUM_DATA = {
   levels: [

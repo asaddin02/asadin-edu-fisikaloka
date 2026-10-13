@@ -2,7 +2,7 @@ import { COURSES } from '../data/courses/index.js';
 import { resolveReference } from '../core/catalog.js';
 import { renderSources } from '../components/sources.js';
 import { escapeHTML } from '../core/html.js';
-// Phsyco · Entity Detail Page (Full Scientific Dossier & 4-Layer Depth)
+// Fisikaloka · Entity Detail Page (Full Scientific Dossier & 4-Layer Depth)
 
 import { PHYSICS_ENTITIES } from '../data/entities.js';
 import { PHYSICS_DOMAINS } from '../data/domains.js';

@@ -1,4 +1,4 @@
-// Phsyco · Interactive laboratory catalogue (ids are the ?sim= values; classes are attached in simulations-page.js)
+// Fisikaloka · Interactive laboratory catalogue (ids are the ?sim= values; classes are attached in simulations-page.js)
 export const SIMULATIONS = [
   { id: 'circuits', title: 'Rangkaian DC Seri & Paralel', category: 'Listrik', icon: '🔋' },
   { id: 'projectile', title: 'Gerak Parabola & Balistik', category: 'Kinematika', icon: '🚀' },

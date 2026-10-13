@@ -1,7 +1,7 @@
 import { resolveReference } from '../core/catalog.js';
 import { renderSources } from '../components/sources.js';
 import { solveEquation } from '../core/solver.js';
-// Phsyco · Equation Explorer Page with Interactive Variable Inspector & Live Solver
+// Fisikaloka · Equation Explorer Page with Interactive Variable Inspector & Live Solver
 
 import { PHYSICS_EQUATIONS } from '../data/equations.js';
 import { PHYSICS_DOMAINS } from '../data/domains.js';

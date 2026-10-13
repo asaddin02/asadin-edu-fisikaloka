@@ -20,7 +20,7 @@ export function renderLearnPage(container,params={}){
   container.querySelector('#toggle-all').addEventListener('click',()=>{all=!all;render();container.querySelector('#toggle-all').focus();});
   const input=container.querySelector('#lesson-search');input.addEventListener('input',()=>{const position=input.selectionStart;query=input.value;render();const fresh=container.querySelector('#lesson-search');fresh.focus();if(fresh.type==='text')fresh.setSelectionRange(position,position);});
   container.querySelector('#reset-lesson-search')?.addEventListener('click',()=>{query='';render();});
-  container.querySelector('#export-study').addEventListener('click',()=>{const a=document.createElement('a'),url=URL.createObjectURL(new Blob([exportStudy()],{type:'application/json'}));a.href=url;a.download='phsyco-catatan.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  container.querySelector('#export-study').addEventListener('click',()=>{const a=document.createElement('a'),url=URL.createObjectURL(new Blob([exportStudy()],{type:'application/json'}));a.href=url;a.download='fisikaloka-catatan.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
   container.querySelector('#reset-study').addEventListener('click',()=>container.querySelector('#reset-confirm').hidden=false);
   container.querySelector('#cancel-reset').addEventListener('click',()=>container.querySelector('#reset-confirm').hidden=true);
   container.querySelector('#confirm-reset').addEventListener('click',()=>{if(resetStudy()){state=loadStudy();render();}else container.querySelector('#study-status').textContent='Penyimpanan tidak tersedia. Progres belum dihapus.';});

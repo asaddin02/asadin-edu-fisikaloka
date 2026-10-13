@@ -1,4 +1,4 @@
-// Phsyco · Interactive Simulation: Simple & Damped Harmonic Pendulum Lab
+// Fisikaloka · Interactive Simulation: Simple & Damped Harmonic Pendulum Lab
 
 export class PendulumSimulation {
   constructor() {
