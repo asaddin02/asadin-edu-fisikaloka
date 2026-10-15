@@ -119,11 +119,13 @@ export function prerenderPages(){
   return pages;
 }
 // Structured data: breadcrumbs everywhere, Article for entities and LearningResource for lessons.
+const ORG={'@type':'Organization','@id':'https://asadinedu.com/#organization',name:'Asadin Edu',url:'https://asadinedu.com/'};
 export function jsonLd(page,siteURL){
   const url=siteURL+page.route,crumbs=[['/','Beranda'],...(page.route.startsWith('/entity/')?[['/explore','Jelajah']]:page.route.startsWith('/lesson/')?[['/learn','Belajar']]:[]),[page.route,page.heading]];
   const data=[{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:crumbs.map(([path,name],i)=>({'@type':'ListItem',position:i+1,name,item:siteURL+path}))}];
+  if(page.route==='/')data.push({'@context':'https://schema.org','@type':'WebSite',name:'Fisikaloka',url:siteURL+'/',inLanguage:'id',description:page.description,publisher:ORG});
   if(page.type)data.push({'@context':'https://schema.org','@type':page.type,name:page.heading,headline:page.heading,description:page.description,inLanguage:'id',url,mainEntityOfPage:url,
-    author:{'@type':'Organization',name:'Asadin Edu'},publisher:{'@type':'Organization',name:'Fisikaloka · Asadin Edu'},
+    author:ORG,publisher:ORG,
     ...(page.type==='LearningResource'?{learningResourceType:'Pelajaran',educationalLevel:page.level.label,timeRequired:`PT${page.minutes}M`,isAccessibleForFree:true}:{})});
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g,'\\u003c')}</script>`;
 }
